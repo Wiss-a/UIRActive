@@ -56,12 +56,15 @@ export function Marketplace() {
     try {
       setLoading(true);
       const response = await axios.get(`${API_BASE_URL}/marketplace`);
-      setItems(response.data);
-      setFilteredItems(response.data);
+      // Ensure we always set an array
+      setItems(Array.isArray(response.data) ? response.data : []);
+      setFilteredItems(Array.isArray(response.data) ? response.data : []);
       setLoading(false);
     } catch (err) {
       setError('Failed to fetch items');
       setLoading(false);
+      setItems([]);
+      setFilteredItems([]);
       console.error(err);
     }
   };
@@ -69,9 +72,12 @@ export function Marketplace() {
   const fetchCategories = async () => {
     try {
       const response = await axios.get(`${API_BASE_URL}/categories`);
-      setCategories(response.data);
+      // Ensure we always set an array, even if the API returns something unexpected
+      setCategories(Array.isArray(response.data) ? response.data : []);
     } catch (err) {
       console.error('Failed to fetch categories', err);
+      // Make sure categories remains an array even on error
+      setCategories([]);
     }
   };
 
@@ -128,7 +134,8 @@ export function Marketplace() {
             className="px-4 py-2 border border-gray-300 rounded-lg focus:ring-[#f5763b] focus:border-[#f5763b]"
           >
             <option value="">All Categories</option>
-            {categories.map(category => (
+            {/* Added safety check to ensure categories is always an array */}
+            {Array.isArray(categories) && categories.map(category => (
               <option key={category.id} value={category.id}>
                 {category.name}
               </option>

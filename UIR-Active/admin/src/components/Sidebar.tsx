@@ -14,12 +14,10 @@ import {
 const navItems = [
   { path: '/', icon: LayoutDashboard, label: 'Dashboard' },
   { path: '/users', icon: Users, label: 'Users' },
-  { path: '/student-posts', icon: MessageSquare, label: 'Student Posts' },
   { path: '/events', icon: Trophy, label: 'Events' },
   { path: '/venues', icon: Building2, label: 'Sports Venues' },
   { path: '/venue-booking', icon: CalendarDays, label: 'Venue Booking' },
   { path: '/marketplace', icon: ShoppingBag, label: 'Marketplace' },
-  { path: '/transactions', icon: Receipt, label: 'Transactions' },
   { path: '/lost-found', icon: Search, label: 'Lost & Found' }
 ];
 

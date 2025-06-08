@@ -248,16 +248,18 @@ export function Events() {
         </button>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        {events.map((event) => (
-          <div key={event.id} className="bg-white rounded-lg shadow-sm overflow-hidden">
-            {event.image && (
-              <img
-                src={event.image}
-                alt={event.title}
-                className="w-full h-48 object-cover"
-              />
-            )}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
+  {events.map((event) => (
+    <div key={event.id} className="bg-white rounded-lg shadow-sm p-2"> {/* Add padding to the card */}
+      {event.image && (
+        <div className="w-full h-48 flex items-center justify-center">
+          <img
+            src={event.image}
+            alt={event.title}
+            className="max-h-48 object-contain"
+          /> 
+        </div>
+      )}
             <div className="p-6">
               <div className="flex justify-between items-start mb-4">
                 <h3 className="text-xl font-semibold text-gray-900">{event.title}</h3>
