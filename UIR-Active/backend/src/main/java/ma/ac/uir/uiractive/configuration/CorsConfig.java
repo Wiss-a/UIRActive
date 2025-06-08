@@ -27,16 +27,24 @@ public class CorsConfig implements WebMvcConfigurer {
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
 
-        // Use patterns instead of specific origins for more flexibility
-        configuration.setAllowedOriginPatterns(Arrays.asList("http://localhost:*"));
+        // Allow specific origins (replace with your actual frontend URLs)
+        configuration.setAllowedOriginPatterns(Arrays.asList("*"));
 
-        configuration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE", "OPTIONS"));
+        // Allow all HTTP methods
+        configuration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"));
+
+        // Allow all headers
         configuration.setAllowedHeaders(Arrays.asList("*"));
+
+        // Allow credentials (cookies, authorization headers)
         configuration.setAllowCredentials(true);
+
+        // How long the browser should cache preflight requests
         configuration.setMaxAge(3600L);
 
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
-        source.registerCorsConfiguration("/api/**", configuration);
+        source.registerCorsConfiguration("/**", configuration);
+
         return source;
     }
 }

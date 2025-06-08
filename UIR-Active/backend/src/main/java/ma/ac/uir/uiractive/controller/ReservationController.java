@@ -21,8 +21,12 @@ import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/api/reservations")
-@CrossOrigin(origins = "http://localhost:3000")
-public class ReservationController {
+@CrossOrigin(
+        originPatterns = {"http://localhost:*"},
+        allowCredentials = "true",
+        allowedHeaders = {"Content-Type", "Authorization", "X-Requested-With", "Accept", "Origin", "Access-Control-Request-Method", "Access-Control-Request-Headers"},
+        methods = {RequestMethod.GET, RequestMethod.POST, RequestMethod.PUT, RequestMethod.DELETE, RequestMethod.OPTIONS}
+)public class ReservationController {
 
     private final ReservationService reservationService;
     private final SportVenueService sportsVenueService;

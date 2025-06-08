@@ -40,7 +40,7 @@ public class Student extends User {
     // Ajoutez ces getters et setters
     @Setter
     @Getter
-//    @JsonIgnore
+    @JsonIgnore
     @OneToMany(mappedBy = "seller", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<MarketplaceItem> marketplaceItems;
 
@@ -59,8 +59,8 @@ public class Student extends User {
         this.statut = true; // Par défaut, statut actif
     }
 
-    public Student(String firstname, String lastname, String email, String password) {
-        super(firstname, lastname, email, password);
+    public Student(String firstname, String lastname, String email, String password,String phonenumber) {
+        super(firstname, lastname, email, password,phonenumber);
         this.statut = true;
     }
 

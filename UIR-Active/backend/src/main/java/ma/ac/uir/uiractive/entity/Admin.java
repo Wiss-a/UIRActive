@@ -13,7 +13,7 @@ public class Admin extends User {
         super();
     }
 
-    public Admin(String firstname, String lastname, String email, String password) {
-        super(firstname, lastname, email, password);
+    public Admin(String firstname, String lastname, String email, String password, String phonenumber) {
+        super(firstname, lastname, email, password,phonenumber);
     }
 }

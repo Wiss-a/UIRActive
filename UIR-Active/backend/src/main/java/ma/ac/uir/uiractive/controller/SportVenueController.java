@@ -110,4 +110,8 @@ public class SportVenueController {
         SportsVenue venue = sportVenueService.updateVenueStatus(id, isActive);
         return ResponseEntity.ok(venue);
     }
+    @GetMapping("/count/venue")
+    public ResponseEntity<Long> countVenues() {
+        return ResponseEntity.ok(sportVenueService.countVenues());
+    }
 }

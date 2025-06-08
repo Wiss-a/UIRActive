@@ -37,4 +37,6 @@ public interface SportVenueService {
 
     void deleteVenue(Long id);
     SportsVenue updateVenueStatus(Long id, boolean isActive);
+
+    Long countVenues();
 }

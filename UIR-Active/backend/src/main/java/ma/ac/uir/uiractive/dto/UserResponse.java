@@ -9,4 +9,5 @@ public class UserResponse {
     private int idU;
     private String firstname;
     private String lastname;
+    private String phonenumber;
 }

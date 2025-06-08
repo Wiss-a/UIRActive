@@ -1,5 +1,6 @@
 package ma.ac.uir.uiractive.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 
@@ -21,7 +22,7 @@ public class Category {
     private String description;
 
     @OneToMany(mappedBy = "category", cascade = CascadeType.ALL, orphanRemoval = true)
-    @JsonIgnoreProperties("category")
+    @JsonIgnore
     private List<MarketplaceItem> marketplaceItems;
 
     // Constructeurs

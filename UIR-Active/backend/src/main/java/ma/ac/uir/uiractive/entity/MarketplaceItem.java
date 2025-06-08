@@ -24,6 +24,7 @@ public class MarketplaceItem {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "category_id", nullable = false)
+    @JsonIgnoreProperties({"marketplaceItems"}) // Use this instead of @JsonIgnore to prevent circular references
     private Category category;
 
     @Column(name = "title", nullable = false, length = 100)

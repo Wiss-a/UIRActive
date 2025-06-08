@@ -12,11 +12,13 @@ import java.util.List;
 public class SportVenueServiceImpl implements SportVenueService {
     private final SportVenueRepository venueRepository;
     private final FileStorageService fileStorageService;
+    private final SportVenueRepository sportVenueRepository;
 
     public SportVenueServiceImpl(SportVenueRepository venueRepository,
-                                 FileStorageService fileStorageService) {
+                                 FileStorageService fileStorageService, SportVenueRepository sportVenueRepository) {
         this.venueRepository = venueRepository;
         this.fileStorageService = fileStorageService;
+        this.sportVenueRepository = sportVenueRepository;
     }
 
     @Override
@@ -109,6 +111,10 @@ public class SportVenueServiceImpl implements SportVenueService {
         SportsVenue venue = getVenueById(id);
         venue.setIsActive(isActive);
         return venueRepository.save(venue);
+    }
+
+    @Override
+    public Long countVenues() { return sportVenueRepository.countSportsVenue();
     }
 
     @Override

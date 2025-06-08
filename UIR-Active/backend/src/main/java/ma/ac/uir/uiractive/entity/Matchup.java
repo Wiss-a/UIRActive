@@ -1,10 +1,12 @@
 package ma.ac.uir.uiractive.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 
-import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Entity
 @Table(name = "matchup")
@@ -44,6 +46,7 @@ public class Matchup {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "creator_id", nullable = false)
+    @JsonIgnore
     private User creator;
 
     @ManyToMany
@@ -52,6 +55,7 @@ public class Matchup {
             joinColumns = @JoinColumn(name = "matchup_id"),
             inverseJoinColumns = @JoinColumn(name = "user_id")
     )
+    @JsonIgnore
     private List<User> participants;
 
     @Column(name = "created_at", nullable = false)
@@ -67,6 +71,47 @@ public class Matchup {
         this.description = description;
         this.eventDate = eventDate;
         this.creator = creator;
+    }
+
+    // Add these JSON properties to expose participant data without full User objects
+    @JsonProperty("participants")
+    public List<ParticipantDto> getParticipantsDto() {
+        if (participants == null) {
+            return List.of();
+        }
+        return participants.stream()
+                .map(user -> new ParticipantDto(user.getIdU(), user.getFirstname(),user.getLastname()))
+                .collect(Collectors.toList());
+    }
+
+    @JsonProperty("createdBy")
+    public Integer getCreatedBy() {
+        return creator != null ? creator.getIdU() : null;
+    }
+
+    // Inner class for participant data transfer
+    public static class ParticipantDto {
+        private Integer id;
+        private String firstname;
+        private String lastname;
+
+        public ParticipantDto(Integer id, String firstname, String lastname) {
+            this.id = id;
+            this.firstname = firstname;
+            this.lastname = lastname;
+        }
+
+        public Integer getId() {
+            return id;
+        }
+        public String getFirstname() {
+            return firstname;
+        }
+        public String getLastname() {
+            return lastname;
+        }
+
+
     }
 
     // Getters and setters

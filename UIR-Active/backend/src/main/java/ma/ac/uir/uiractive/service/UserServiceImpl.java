@@ -35,6 +35,9 @@ public class UserServiceImpl {
         if (userUpdateDTO.getEmail() != null) {
             existingUser.setEmail(userUpdateDTO.getEmail());
         }
+        if (userUpdateDTO.getPhonenumber() != null) {
+            existingUser.setPhonenumber(userUpdateDTO.getPhonenumber());
+        }
         if (userUpdateDTO.getPassword() != null && !userUpdateDTO.getPassword().isEmpty()) {
             existingUser.setPassword(passwordEncoder.encode(userUpdateDTO.getPassword()));
         }

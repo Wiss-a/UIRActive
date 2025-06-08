@@ -56,7 +56,7 @@ public class UserController {
                 userResponse.setFirstname(user.get().getFirstname());
                 userResponse.setLastname(user.get().getLastname());
                 userResponse.setEmail(user.get().getEmail());
-
+                userResponse.setPhonenumber(user.get().getPhonenumber());
                 return ResponseEntity.ok(userResponse);
             } else {
                 return ResponseEntity.status(HttpStatus.NOT_FOUND)
@@ -85,6 +85,7 @@ public class UserController {
                 userResponse.setFirstname(user.get().getFirstname());
                 userResponse.setLastname(user.get().getLastname());
                 userResponse.setEmail(user.get().getEmail());
+                userResponse.setPhonenumber(user.get().getPhonenumber());
 
                 return ResponseEntity.ok(userResponse);
             } else {
@@ -125,6 +126,9 @@ public class UserController {
             if (userUpdateDTO.getLastname() != null && !userUpdateDTO.getLastname().trim().isEmpty()) {
                 user.setLastname(userUpdateDTO.getLastname().trim());
             }
+            if (userUpdateDTO.getPhonenumber() != null && !userUpdateDTO.getPhonenumber().trim().isEmpty()) {
+                user.setPhonenumber(userUpdateDTO.getPhonenumber().trim());
+            }
 
             if (userUpdateDTO.getEmail() != null && !userUpdateDTO.getEmail().trim().isEmpty()) {
                 // Vérifier si l'email n'est pas déjà utilisé par un autre utilisateur
@@ -149,6 +153,7 @@ public class UserController {
             response.setFirstname(updatedUser.getFirstname());
             response.setLastname(updatedUser.getLastname());
             response.setEmail(updatedUser.getEmail());
+            response.setPhonenumber(updatedUser.getPhonenumber());
 
             return ResponseEntity.ok(response);
 
@@ -186,6 +191,9 @@ public class UserController {
             if (userUpdateDTO.getLastname() != null && !userUpdateDTO.getLastname().trim().isEmpty()) {
                 user.setLastname(userUpdateDTO.getLastname().trim());
             }
+            if (userUpdateDTO.getPhonenumber() != null && !userUpdateDTO.getPhonenumber().trim().isEmpty()) {
+                user.setPhonenumber(userUpdateDTO.getPhonenumber().trim());
+            }
 
             if (userUpdateDTO.getEmail() != null && !userUpdateDTO.getEmail().trim().isEmpty()) {
                 // Vérifier si l'email n'est pas déjà utilisé par un autre utilisateur
@@ -210,6 +218,7 @@ public class UserController {
             response.setFirstname(updatedUser.getFirstname());
             response.setLastname(updatedUser.getLastname());
             response.setEmail(updatedUser.getEmail());
+            response.setPhonenumber(updatedUser.getPhonenumber());
 
             return ResponseEntity.ok(response);
 
@@ -255,6 +264,7 @@ class UserResponseDTO {
     private String firstname;
     private String lastname;
     private String email;
+    private String phonenumber;
 
     // Getters and Setters
     public int getIdU() { return idU; }
@@ -268,6 +278,14 @@ class UserResponseDTO {
 
     public String getEmail() { return email; }
     public void setEmail(String email) { this.email = email; }
+
+    public String getPhonenumber() {
+        return phonenumber;
+    }
+
+    public void setPhonenumber(String phonenumber) {
+        this.phonenumber = phonenumber;
+    }
 }
 
 class ErrorResponse {

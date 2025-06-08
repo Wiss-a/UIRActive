@@ -4,16 +4,20 @@ public class UserUpdateDTO {
     private String firstname;
     private String lastname;
     private String email;
+    private String phonenumber;
     private String password;
 
     public UserUpdateDTO() {}
 
-    public UserUpdateDTO(String firstname, String lastname, String email, String password) {
+    public UserUpdateDTO(String firstname, String lastname, String email, String password,String phonenumber) {
         this.firstname = firstname;
         this.lastname = lastname;
         this.email = email;
+        this.phonenumber = phonenumber;
         this.password = password;
     }
+
+
 
     // Getters et Setters
     public String getFirstname() {
@@ -47,6 +51,8 @@ public class UserUpdateDTO {
     public void setPassword(String password) {
         this.password = password;
     }
+    public String getPhonenumber() {return phonenumber; }
+    public void setPhonenumber(String phonenumber) {this.phonenumber = phonenumber; }
 
     @Override
     public String toString() {
@@ -54,7 +60,8 @@ public class UserUpdateDTO {
                 "firstname='" + firstname + '\'' +
                 ", lastname='" + lastname + '\'' +
                 ", email='" + email + '\'' +
-                ", password='[PROTECTED]'" +
+                ", phonenumber='" + phonenumber + '\'' +
+                ", password='" + password + '\'' +
                 '}';
     }
 }

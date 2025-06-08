@@ -1,5 +1,6 @@
 package ma.ac.uir.uiractive.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 
@@ -27,6 +28,9 @@ public class User {
     @Column(name = "email", nullable = false, unique = true)
     private String email;
 
+    @Column(name = "phonenumber", nullable = false, unique = true)
+    private String phonenumber;
+
     @Column(name = "password", nullable = false)
     private String password;
 
@@ -34,11 +38,14 @@ public class User {
     private Date dateInscription;
 
     // Events created by this user
+
     @OneToMany(mappedBy = "creator", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonIgnore
     private List<SportEvent> createdEvents = new ArrayList<>();
 
     // Events this user is participating in
     @ManyToMany(mappedBy = "participants", cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    @JsonIgnore
     private List<SportEvent> participatingEvents = new ArrayList<>();
 
 
@@ -47,12 +54,38 @@ public class User {
         this.dateInscription = new Date(); // Date courante par défaut
     }
 
-    public User(String firstname, String lastname, String email, String password) {
+    public User(String firstname, String lastname, String email, String password,String phonenumber) {
         this();
         this.firstname = firstname;
         this.lastname = lastname;
         this.email = email;
+        this.phonenumber = phonenumber;
         this.password = password;
+    }
+
+
+    public String getPhonenumber() {
+        return phonenumber;
+    }
+
+    public void setPhonenumber(String phonenumber) {
+        this.phonenumber = phonenumber;
+    }
+
+    public List<SportEvent> getCreatedEvents() {
+        return createdEvents;
+    }
+
+    public void setCreatedEvents(List<SportEvent> createdEvents) {
+        this.createdEvents = createdEvents;
+    }
+
+    public List<SportEvent> getParticipatingEvents() {
+        return participatingEvents;
+    }
+
+    public void setParticipatingEvents(List<SportEvent> participatingEvents) {
+        this.participatingEvents = participatingEvents;
     }
 
     // Getters et Setters
