@@ -1,0 +1,231 @@
+import { StyleSheet } from 'react-native';
+
+const styles = StyleSheet.create({
+    container: {
+      flex: 1,
+      backgroundColor: '#FFFFFF',
+    },
+    header: {
+      flexDirection: 'row',
+      justifyContent: 'space-between',
+      alignItems: 'center',
+      paddingHorizontal: 16,
+      paddingVertical: 12,
+    },
+    headerLeft: {
+      flexDirection: 'row',
+      alignItems: 'center',
+    },
+    headerTitle: {
+      fontSize: 20,
+      fontWeight: '600',
+      marginRight: 4,
+    },
+    headerRight: {
+      flexDirection: 'row',
+      alignItems: 'center',
+    },
+    iconButton: {
+      marginLeft: 16,
+    },
+    searchContainer: {
+      flexDirection: 'row',
+      alignItems: 'center',
+      backgroundColor: '#F5F5F5',
+      borderRadius: 8,
+      marginHorizontal: 16,
+      marginVertical: 8,
+      paddingHorizontal: 12,
+      height: 40,
+    },
+    searchIcon: {
+      marginRight: 8,
+    },
+    searchInput: {
+      flex: 1,
+      fontSize: 16,
+      color: '#333',
+    },
+    sectionTitle: {
+      fontSize: 18,
+      fontWeight: '600',
+      marginHorizontal: 16,
+      marginTop: 20,
+      marginBottom: 12,
+    },
+    bookAgainContainer: {
+      paddingLeft: 16,
+    },
+    bookAgainCard: {
+      width: 160,
+      marginRight: 16,
+      borderRadius: 12,
+      backgroundColor: '#fff',
+      shadowColor: '#000',
+      shadowOffset: { width: 0, height: 1 },
+      shadowOpacity: 0.1,
+      shadowRadius: 4,
+      elevation: 2,
+      marginBottom: 6,
+    },
+    bookAgainImage: {
+      width: '100%',
+      height: 100,
+      borderTopLeftRadius: 12,
+      borderTopRightRadius: 12,
+    },
+    venueName: {
+      fontSize: 16,
+      fontWeight: '600',
+      paddingHorizontal: 10,
+      paddingTop: 8,
+    },
+    venueInfoRow: {
+      flexDirection: 'row',
+      alignItems: 'center',
+      paddingHorizontal: 10,
+      paddingTop: 4,
+    },
+    ratingContainer: {
+      flexDirection: 'row',
+      alignItems: 'center',
+    },
+    ratingText: {
+      fontSize: 12,
+      color: '#555',
+      marginLeft: 4,
+    },
+    distanceText: {
+      fontSize: 12,
+      color: '#555',
+      marginLeft: 4,
+    },
+    sportTypes: {
+      fontSize: 12,
+      color: '#777',
+      paddingHorizontal: 10,
+      paddingVertical: 6,
+    },
+    promoBanner: {
+      flexDirection: 'row',
+      backgroundColor: '#1E88E5',
+      borderRadius: 12,
+      marginHorizontal: 16,
+      marginVertical: 16,
+      padding: 16,
+      overflow: 'hidden',
+    },
+    promoTextContainer: {
+      flex: 1,
+      justifyContent: 'center',
+    },
+    promoTitle: {
+      fontSize: 18,
+      fontWeight: '700',
+      color: 'white',
+      marginBottom: 8,
+    },
+    bookNowContainer: {
+      flexDirection: 'row',
+      alignItems: 'center',
+    },
+    bookNowText: {
+      fontSize: 14,
+      color: 'white',
+      marginRight: 8,
+    },
+    promoImageContainer: {
+      position: 'absolute',
+      right: 0,
+      bottom: 0,
+      width: '50%',
+      height: '100%',
+    },
+    promoImage: {
+      width: '100%',
+      height: '100%',
+    },
+    sportsContainer: {
+      paddingLeft: 16,
+      paddingVertical: 8,
+    },
+    sportIconContainer: {
+      alignItems: 'center',
+      marginRight: 24,
+    },
+    sportIcon: {
+      width: 50,
+      height: 50,
+      backgroundColor: '#f0f0f0',
+      //borderRadius: 25,
+      justifyContent: 'center',
+      alignItems: 'center',
+      marginBottom: 8,
+    },
+    sportName: {
+      fontSize: 12,
+      color: '#333',
+    },
+    sportImageContainer: {
+        width: 100,
+        height: 100,
+        backgroundColor: '#f0f0f0',
+        borderRadius: 25,
+        justifyContent: 'center',
+        alignItems: 'center',
+        marginBottom: 8,
+        overflow: 'hidden',
+      },
+      sportImage: {
+        width: 50,
+        height: 50,
+      },
+      sportName: {
+        fontSize: 12,
+        color: '#333',
+      },
+    recommendationsHeader: {
+      flexDirection: 'row',
+      justifyContent: 'space-between',
+      alignItems: 'center',
+      paddingRight: 16,
+    },
+    filterContainer: {
+      flexDirection: 'row',
+      alignItems: 'center',
+    },
+    filterButton: {
+      width: 36,
+      height: 36,
+      borderRadius: 8,
+      backgroundColor: '#f0f0f0',
+      justifyContent: 'center',
+      alignItems: 'center',
+      marginLeft: 8,
+    },
+    bottomNav: {
+      flexDirection: 'row',
+      justifyContent: 'space-around',
+      alignItems: 'center',
+      backgroundColor: '#fff',
+      borderTopWidth: 1,
+      borderTopColor: '#efefef',
+      paddingVertical: 8,
+      position: 'absolute',
+      bottom: 0,
+      left: 0,
+      right: 0,
+    },
+    navItem: {
+      alignItems: 'center',
+      justifyContent: 'center',
+      padding: 8,
+    },
+    navText: {
+      fontSize: 12,
+      marginTop: 4,
+      color: '#999',
+    },
+  });
+  export default styles;
+  
